@@ -58,6 +58,7 @@
 
     <script type="text/javascript">
         const urlArtista = "https://pgyex2.azurewebsites.net/api/Artista"
+        const urlNoticia = "https://pgyex2.azurewebsites.net/api/Noticia"
         const ls = window.localStorage;
 
         $(function () {
@@ -70,26 +71,40 @@
                 ls.setItem("artista_uri", url);
             });
         });
-        
+
+        $(document).on('click', '#btnPrevio',function(){
+            const url = $(this).data('url');
+            cargarLista(url);
+            ls.setItem("url_back", url);
+        });
+            
+        $(document).on('click', '#btnSiguiente',function(){
+            const url = $(this).data('url');
+            console.log({url});
+            cargarLista(url);
+            ls.setItem("url_back", url);
+        })
+    
         function cargarLista(url){
             const cont = $('#onload');
             const claseLargo = "col-sm-3";
 
-            $.get(url).done(function(obj){
+            $.get("https://pgyex2.azurewebsites.net/api/Artista").done(function(obj){
+                console.log({obj});
                 cont.html("");
-
-                $.each(obj.results, function(indice, valor){
+                
+                $.each(obj, function(indice, valor){
                     const titulo = $('<h5 />', {
-                        text: valor.nombre
+                        text: "Artista: "+valor.nombre
                     });
-    
+                    
                     const vinculo = $('<a />', {
                         text: "Ir",
                         href: "#",
                         class: "btn btn-primary linkArtista",
                         id: "artista-"+indice,
                     }).data('url', valor.url);
-         
+                    
                     const divCard = $('<div />',{
                         class: "card"
                     }).append($('<div />',{ class: "card-body" }));
@@ -103,7 +118,6 @@
                 });
             });
         }
-
     </script>
 </body>
 </html>
