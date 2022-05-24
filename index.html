@@ -166,7 +166,7 @@
 
   <br><br>
 
-  <div id="resultado">
+  <div id="resultado" align=center>
     <div id="artista">
 
     </div>
@@ -189,9 +189,11 @@
                   console.table({elemento});
                   v_div.append("Noticia: "+elemento.titulo);
                   v_div.append("<br />");
-                  v_div.append("<a href=https://youtu.be/X8L2lH6llvY>URL</a>");
                   v_div.append("<br />");
                   v_div.append("<img src='"+elemento.imagenUri+"' style= 'width:20%'></img>");
+                  v_div.append("<br />");
+                  v_div.append("<a href=https://youtu.be/X8L2lH6llvY>URL</a>");
+                  v_div.append("<br />");
                   v_div.append("<br />");
               });
               $.each(objN.evento, function(index,element){
