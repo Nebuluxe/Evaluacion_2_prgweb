@@ -91,8 +91,12 @@
                         text: valor.nombre
                     });
                     
-                    const donde = $('<h6 />', {
+                    const artista = $('<h6 />', {
                         text: "Lugar: "+valor.donde
+                    });
+
+                    const donde = $('<h6 />', {
+                        text: "Artista: "+valor.artista.nombre
                     });
 
                     const fecha = $('<h6 />', {
@@ -110,7 +114,7 @@
 
                     const vinculo = $('<a />', {
                         text: "Comprar Entrada",
-                        href: "ficha_evento.html",
+                        href: "compraentrada.html",
                         class: "btn btn-primary linkArtista",
                         id: "artista-"+indice,
                     }).data('url', valor.url);
@@ -121,6 +125,7 @@
                     
                     divCard.find('.card-body').append(imagen);
                     divCard.find('.card-body').append(titulo);
+                    divCard.find('.card-body').append(artista);
                     divCard.find('.card-body').append(donde);
                     divCard.find('.card-body').append(tipoEvento);
                     divCard.find('.card-body').append(fecha);
