@@ -54,7 +54,7 @@
     <br><br><br><br>
 
     <div class="container" align = center>
-        <h1>Aqui algunos eventos</h1>
+        <h1>EVENTOS DISPONIBLES</h1>
         <br><br>
         <div class="row" id="onload">
         </div>
@@ -87,24 +87,45 @@
                 cont.html("");
                 
                 $.each(obj, function(indice, valor){
-                    const titulo = $('<h5 />', {
+                    const titulo = $('<h2 />', {
                         text: valor.nombre
                     });
                     
+                    const donde = $('<h6 />', {
+                        text: "Lugar: "+valor.donde
+                    });
+
+                    const fecha = $('<h6 />', {
+                        text: "Fecha: "+valor.fecha
+                    });
+
+                    const tipoEvento = $('<h6 />', {
+                        text: "Tipo de Lugar: "+valor.tipoEventoStr
+                    });
+
+                    const imagen = $('<img />', {
+                        src: "src/imagenes/EventoIcon.png",
+                        style: "width:60%"
+                    });
+
                     const vinculo = $('<a />', {
-                        text: "Ir",
+                        text: "Comprar Entrada",
                         href: "ficha_evento.html",
                         class: "btn btn-primary linkArtista",
                         id: "artista-"+indice,
                     }).data('url', valor.url);
-                    
+
                     const divCard = $('<div />',{
                         class: "card"
                     }).append($('<div />',{ class: "card-body" }));
-        
+                    
+                    divCard.find('.card-body').append(imagen);
                     divCard.find('.card-body').append(titulo);
+                    divCard.find('.card-body').append(donde);
+                    divCard.find('.card-body').append(tipoEvento);
+                    divCard.find('.card-body').append(fecha);
                     divCard.find('.card-body').append(vinculo);
-        
+
                     cont.append($('<div />', {
                        class: claseLargo 
                     }).append(divCard));
