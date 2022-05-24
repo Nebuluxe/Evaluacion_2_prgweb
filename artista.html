@@ -53,37 +53,78 @@
 
     <br><br><br><br>
 
-    <div id="resultado" align=center>
-
+    <div class="container" align = center>
+        <h1>Info de los artistas</h1>
+        <br><br>
+        <div class="row" id="onload">
+        </div>
     </div>
 
-    <script type="text/javascript">
-        $(function(){
-          const v_div = $('#resultado');
-          const titulo = $('<h1></h1>'); // JQuery pregunta "Existe? no? Entonces lo creamos"
     
-            $.get("https://pgyex2.azurewebsites.net/api/Evento").done(function(obj){
-                console.log({obj});
-                $.each(obj, function(index,elemento){
-                    console.table({elemento});
-                    v_div.append("Evento: "+elemento.nombre);
-                    v_div.append("<br />");
-                    v_div.append("Lugar: "+elemento.donde);
-                    v_div.append("<br />");
-                    v_div.append("Fecha: "+elemento.fecha);
-                    v_div.append("<br />");
-                    v_div.append("artista: "+elemento.artista.nombre);
-                    v_div.append("<br />");
-                    v_div.append("Genero: "+elemento.artista.genero);
-                    v_div.append("<br />");
-                    v_div.append("<a > Boton <a/>");
-                    v_div.append("<br />");
-                    v_div.append("<br />");
-                });
+
+    <script type="text/javascript">
+        const urlArtista = "https://pgyex2.azurewebsites.net/api/Artista"
+        const urlEvento = "https://pgyex2.azurewebsites.net/api/Evento"
+        const ls = window.localStorage;
+
+        $(function () {
+            const url = ls.getItem("url_back");
+            cargarLista(url || urlArtista);
+
+            $(document).on('click', ".linkArtista", function(e){
+                //e.preventDefault();
+                const url = $(this).data("url");
+                ls.setItem("artista_uri", url);
             });
         });
     
-      </script>
+        function cargarLista(url){
+            const cont = $('#onload');
+            const claseLargo = "col-sm-3";
 
+            $.get("https://pgyex2.azurewebsites.net/api/Artista").done(function(obj){
+                console.log({obj});
+                cont.html("");
+                
+                $.each(obj, function(indice, valor){
+
+                    const titulo = $('<h3 />', {
+                        text: valor.nombre
+                    });
+
+                    const genero = $('<h5 />', {
+                        text: "genero: "+valor.genero
+                    });
+                    
+                    const fena = $('<h5 />', {
+                        text: "fecha de nacimiento: "+valor.fechaNacimiento
+                    });
+
+                    const lugarfena = $('<h5 />', {
+                        text: "lugar de nacimiento: "+valor.lugarNacimiento+", "+valor.paisNacimiento
+                    });
+
+                    const edad = $('<h5 />', {
+                        text: "edad: "+valor.edad+" años"
+                    });
+                    
+                    const divCard = $('<div />',{
+                        class: "card"
+                    }).append($('<div />',{ class: "card-body" }));
+                    
+                    divCard.find('.card-body').append("<img src='src/imagenes/Evento.png' class='card-img-top img-thumbnail' style= 'width:50%' alt='...'>");
+                    divCard.find('.card-body').append(titulo);
+                    divCard.find('.card-body').append(genero);
+                    divCard.find('.card-body').append(fena);
+                    divCard.find('.card-body').append(lugarfena);
+                    divCard.find('.card-body').append(edad);
+
+                    cont.append($('<div />', {
+                       class: claseLargo 
+                    }).append(divCard));
+                });
+            });
+        }
+    </script>
 </body>
 </html>
