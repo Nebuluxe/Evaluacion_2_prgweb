@@ -1,705 +1,677 @@
 {
-  "openapi": "3.0.1",
-  "info": {
-    "title": "RealityFirst API",
-    "version": "v1"
-  },
-  "paths": {
-    "/api/Artista": {
-      "get": {
-        "tags": [
-          "Artista"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Artista"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Artista"
-              }
+    "openapi": "3.0.1",
+    "info": {
+        "title": "RealityFirst API",
+        "version": "v1"
+    },
+    "paths": {
+        "/api/Artista": {
+            "get": {
+                "tags": [
+                    "Artista"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Artista"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Artista"
-              }
+            "post": {
+                "tags": [
+                    "Artista"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Artista"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Artista"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Artista"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             }
-          }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Artista/{id}": {
-      "get": {
-        "tags": [
-          "Artista"
-        ],
-        "operationId": "GetArtista",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Artista"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Artista"
-              }
+        "/api/Artista/{id}": {
+            "get": {
+                "tags": [
+                    "Artista"
+                ],
+                "operationId": "GetArtista",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Artista"
-              }
+            "put": {
+                "tags": [
+                    "Artista"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Artista"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Artista"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Artista"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Artista"
-              }
+            "delete": {
+                "tags": [
+                    "Artista"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             }
-          }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Artista"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Evento": {
-      "get": {
-        "tags": [
-          "Evento"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Evento"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Evento"
-              }
+        "/api/Evento": {
+            "get": {
+                "tags": [
+                    "Evento"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Evento"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Evento"
-              }
+            "post": {
+                "tags": [
+                    "Evento"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Evento"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Evento"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Evento"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             }
-          }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Evento/{id}": {
-      "get": {
-        "tags": [
-          "Evento"
-        ],
-        "operationId": "GetEvento",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Evento"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Evento"
-              }
+        "/api/Evento/{id}": {
+            "get": {
+                "tags": [
+                    "Evento"
+                ],
+                "operationId": "GetEvento",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Evento"
-              }
+            "put": {
+                "tags": [
+                    "Evento"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Evento"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Evento"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Evento"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Evento"
-              }
+            "delete": {
+                "tags": [
+                    "Evento"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             }
-          }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Evento"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+        "/api/Evento/PorArtista/{id}": {
+            "get": {
+                "tags": [
+                    "Evento"
+                ],
+                "operationId": "GetEventosPorArtista",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Evento/PorArtista/{id}": {
-      "get": {
-        "tags": [
-          "Evento"
-        ],
-        "operationId": "GetEventosPorArtista",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Noticia": {
-      "get": {
-        "tags": [
-          "Noticia"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Noticia"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Noticia"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Noticia"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Noticia"
-              }
-            }
-          }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Noticia/{id}": {
-      "get": {
-        "tags": [
-          "Noticia"
-        ],
-        "operationId": "GetNoticia",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Noticia"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Noticia"
-              }
+        "/api/Noticia": {
+            "get": {
+                "tags": [
+                    "Noticia"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Noticia"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Noticia"
-              }
+            "post": {
+                "tags": [
+                    "Noticia"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Noticia"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Noticia"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Noticia"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             }
-          }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Noticia"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/TipoTicket": {
-      "get": {
-        "tags": [
-          "TipoTicket"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "TipoTicket"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TipoTicket"
-              }
+        "/api/Noticia/{id}": {
+            "get": {
+                "tags": [
+                    "Noticia"
+                ],
+                "operationId": "GetNoticia",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TipoTicket"
-              }
+            "put": {
+                "tags": [
+                    "Noticia"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Noticia"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Noticia"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Noticia"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/TipoTicket"
-              }
+            "delete": {
+                "tags": [
+                    "Noticia"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             }
-          }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/TipoTicket/PorId/{id}": {
-      "get": {
-        "tags": [
-          "TipoTicket"
-        ],
-        "operationId": "GetPrecios",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/TipoTicket/PorTipo/{id}": {
-      "get": {
-        "tags": [
-          "TipoTicket"
-        ],
-        "operationId": "GetPreciosPorTipo",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/TipoTicket/{id}": {
-      "put": {
-        "tags": [
-          "TipoTicket"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TipoTicket"
-              }
+        "/api/TipoTicket": {
+            "get": {
+                "tags": [
+                    "TipoTicket"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TipoTicket"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/TipoTicket"
-              }
+            "post": {
+                "tags": [
+                    "TipoTicket"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TipoTicket"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TipoTicket"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TipoTicket"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             }
-          }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "TipoTicket"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+        "/api/TipoTicket/PorId/{id}": {
+            "get": {
+                "tags": [
+                    "TipoTicket"
+                ],
+                "operationId": "GetPrecios",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
+        },
+        "/api/TipoTicket/PorTipo/{id}": {
+            "get": {
+                "tags": [
+                    "TipoTicket"
+                ],
+                "operationId": "GetPreciosPorTipo",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/api/TipoTicket/{id}": {
+            "put": {
+                "tags": [
+                    "TipoTicket"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TipoTicket"
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TipoTicket"
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TipoTicket"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "TipoTicket"
+                ],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
         }
-      }
+    },
+    "components": {
+        "schemas": {
+            "Artista": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "fechaNacimiento": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "lugarNacimiento": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "paisNacimiento": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "edad": {
+                        "type": "integer",
+                        "format": "int32",
+                        "readOnly": true
+                    },
+                    "genero": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Evento": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "artista": {
+                        "$ref": "#/components/schemas/Artista"
+                    },
+                    "donde": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "fecha": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "tipoEvento": {
+                        "$ref": "#/components/schemas/TipoEvento"
+                    },
+                    "tipoEventoStr": {
+                        "type": "string",
+                        "nullable": true,
+                        "readOnly": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "Noticia": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "titulo": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "subtitulo": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "imagenUri": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "escritor": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "editor": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "evento": {
+                        "$ref": "#/components/schemas/Evento"
+                    },
+                    "noticiaTexto": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "artista": {
+                        "$ref": "#/components/schemas/Artista"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TipoEvento": {
+                "enum": [
+                    0,
+                    1,
+                    2
+                ],
+                "type": "integer",
+                "format": "int32"
+            },
+            "TipoTicket": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "nombre": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "asientoNumerado": {
+                        "type": "boolean"
+                    },
+                    "valor": {
+                        "type": "number",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            }
+        }
     }
-  },
-  "components": {
-    "schemas": {
-      "Artista": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nombre": {
-            "type": "string",
-            "nullable": true
-          },
-          "fechaNacimiento": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "lugarNacimiento": {
-            "type": "string",
-            "nullable": true
-          },
-          "paisNacimiento": {
-            "type": "string",
-            "nullable": true
-          },
-          "edad": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "genero": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Evento": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nombre": {
-            "type": "string",
-            "nullable": true
-          },
-          "artista": {
-            "$ref": "#/components/schemas/Artista"
-          },
-          "donde": {
-            "type": "string",
-            "nullable": true
-          },
-          "fecha": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "tipoEvento": {
-            "$ref": "#/components/schemas/TipoEvento"
-          },
-          "tipoEventoStr": {
-            "type": "string",
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Noticia": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "titulo": {
-            "type": "string",
-            "nullable": true
-          },
-          "subtitulo": {
-            "type": "string",
-            "nullable": true
-          },
-          "imagenUri": {
-            "type": "string",
-            "nullable": true
-          },
-          "escritor": {
-            "type": "string",
-            "nullable": true
-          },
-          "editor": {
-            "type": "string",
-            "nullable": true
-          },
-          "evento": {
-            "$ref": "#/components/schemas/Evento"
-          },
-          "noticiaTexto": {
-            "type": "string",
-            "nullable": true
-          },
-          "artista": {
-            "$ref": "#/components/schemas/Artista"
-          }
-        },
-        "additionalProperties": false
-      },
-      "TipoEvento": {
-        "enum": [
-          0,
-          1,
-          2
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
-      "TipoTicket": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nombre": {
-            "type": "string",
-            "nullable": true
-          },
-          "asientoNumerado": {
-            "type": "boolean"
-          },
-          "valor": {
-            "type": "number",
-            "format": "double"
-          }
-        },
-        "additionalProperties": false
-      }
-    }
-  }
 }
