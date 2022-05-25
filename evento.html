@@ -68,12 +68,12 @@
         const ls = window.localStorage;
 
         $(function () {
-            const url = ls.getItem("url_back");
+            const url = ls.getItem("id");
             cargarLista(url || urlEvento);
 
             $(document).on('click', ".linkArtista", function(e){
                 //e.preventDefault();
-                const url = $(this).data("url");
+                const url = $(this).data("id");
                 ls.setItem("artista_uri", url);
             });
         });
@@ -82,7 +82,7 @@
             const cont = $('#onload');
             const claseLargo = "col-sm-3";
 
-            $.get("https://pgyex2.azurewebsites.net/api/Evento").done(function(obj){
+            $.get(url).done(function(obj){
                 console.log({obj});
                 cont.html("");
                 
@@ -117,7 +117,7 @@
                         href: "compraentrada.html",
                         class: "btn btn-primary linkArtista",
                         id: "artista-"+indice,
-                    }).data('url', valor.url);
+                    }).data('id', valor.id);
 
                     const divCard = $('<div />',{
                         class: "card"
