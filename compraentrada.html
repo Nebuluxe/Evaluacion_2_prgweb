@@ -55,40 +55,16 @@
   <h1 align=center><img src="src/imagenes/carrito.png" width=3%>Carrito de Compras<img src="src/imagenes/carrito.png" width=3%></h1>
   <div class="container">
     <h4><img src="src/imagenes/Evento.png" width=5%>Seleccione Evento:</h4>
-    <select class="form-select" aria-label="Default select example" size="1">
+    <select id="opcionTipoEvento" class="form-select" aria-label="Default select example" size="1">
       <option selected align=Center>Entradas Disponibles...</option>
-      <option value="1" align=Center>El Dorado Tour</option>
-      <option value="2" align=Center>Bad Bunny: World's Hottest Tour</option>
-      <option value="3" align=Center>El Residente & Calle 13</option>
-      <option value="4" align=Center>Lit Killah en Chile - Santiago</option>
-      <option value="5" align=Center>Lit Killah en Chile - Concepción</option>
-      <option value="6" align=Center>Lit Killah en Chile - Santiago 2a Función</option>
-      <option value="7" align=Center>Lit Killah en Chile - Valpo/Viña</option>
-      <option value="7" align=Center>Tini en Vivo - Santiago</option>
-      <option value="7" align=Center>Tini en Vivo - Viña</option>
-      <option value="7" align=Center>Tini en Vivo - Concepción</option>
-      <option value="7" align=Center>Cumbia 4:20 - Chile Tour - Santiago</option>
-      <option value="7" align=Center>Cumbia 4:20 - Chile Tour - Viña del Mar</option>
-      <option value="7" align=Center>Cumbia 4:20 - Chile Tour - Talca</option>
-      <option value="7" align=Center>Cumbia 4:20 - Chile Tour - Chillán</option>
-      <option value="7" align=Center>Cumbia 4:20 - Chile Tour - Concepción</option>
-      <option value="7" align=Center>Cumbia 4:20 - Chile Tour - Iquique</option>
-      <option value="7" align=Center>AK 4:20 en La Serena</option>
-      <option value="7" align=Center>El Carrete pa weno</option>
-      <option value="7" align=Center>Camiseta, vuelta a casa</option>
     </select>
     <br>
   </div>
 
   <div class="container">
     <h4><img src="src/imagenes/metodo_pago.png" width=5%> Seleccione tipo de entrada:</h4>
-    <select class="form-select" aria-label="Default select example" size="1">
+    <select id="opcionTipoEntradas" class="form-select" aria-label="Default select example" size="1">
       <option selected align=Center>Entradas Disponibles...</option>
-      <option value="1" align=Center>Platea Alta: $50.000</option>
-      <option value="2" align=Center>Platea Baja: $40.000</option>
-      <option value="3" align=Center>Cancha: $35.000</option>
-      <option value="4" align=Center>General: $15.000</option>
-      <option value="5" align=Center>V.I.P: $20.000</option>
     </select>
     <br>
   </div>
@@ -142,5 +118,25 @@
     </div>
   </div>
 
+  <script type="text/javascript">
+    $(function(){
+      const v_opcionTipoEvento = $('#opcionTipoEvento');
+      const v_opcionTipoEntradas = $('#opcionTipoEntradas');
+      $.get("https://pgyex2.azurewebsites.net/api/Evento").done(function(objE){
+        console.log({objE});
+        $.each(objE, function(index,elemento){
+            console.table({elemento});
+            v_opcionTipoEvento.append("<option value='"+index+"' align=Center>"+elemento.nombre+"</option>");
+        });
+      });
+      $.get("https://pgyex2.azurewebsites.net/api/TipoTicket").done(function(objT){
+        console.log({objT});
+        $.each(objT, function(index,element){
+            console.table({element});
+            v_opcionTipoEntradas.append("<option value='"+index+"' align=Center>"+element.nombre+" : $"+element.valor+"</option>");
+        });
+      });
+    });
+  </script>
 </body>
 </html>
