@@ -169,38 +169,39 @@
 
   <br><br><br>
 
-  <div class=container align=center>
-    <h1 class="display-3">NOTICIAS</h1>
-  </div>
-
-  <br><br>
-
-  <div class=container align=center>
-    <div id="a" class="row">
-
+  <!-- NOTICIAS -->
+  <section class="altura-a-b">
+    <div class="container" align = center>
+      <div class="row" id="noticias">
+      </div>
     </div>
-  </div>
+    
+  </section class="altura-a-b">
+  </main>
 
-  <br><br>
-  
-  
-  <!-- Javascript -->
 
+  <!-- JS -->
   <script type="text/javascript">
-    $(function(){
-      const v_artista = $('#artista');
-      const v_div = $('#resultado');
-      const v_divcard = $('#a');
-      const titulo = $('<h1></h1>'); // JQuery pregunta "Existe? no? Entonces lo creamos"
+    const urlBase = "https://pgyex2.azurewebsites.net/api/Noticia";
 
-      $.get("https://pgyex2.azurewebsites.net/api/Noticia").done(function(objN){
-        console.log({objN});
-        $.each(objN, function(index,elemento){
-            console.table({elemento});
-            v_divcard.append("<div class='col-sm-6'><div class='card' style='justify-content:center'><div class='card-body'><h5 class='card-title'>Nueva noticia de "+elemento.artista.nombre+"</h5><img src='"+elemento.imagenUri+"' class='card-img-top img-thumbnail' style= 'width:50%' alt='...'><p class='card-text'>"+elemento.titulo+"<p class='card-text'>"+elemento.noticiaTexto+"</p><h5>Escritor: "+elemento.escritor+"</h5><h5>Editor: "+elemento.editor+"</h5>");
-        });
-      });
-    });
+    $(document).ready(function(){
+      $.get(urlBase,function(data){    
+        $.each(data,function(i,item){
+          i=i+1 
+          var elemento = "<div class='col-12 col-lg-4  col-md-6 text-center'>"+
+            " <div class='card' style='width: 18rem;'>"+
+                "<img class='img-fluid'" + "src='"+item.imagenUri+"' class='card-img-top' alt='Foto1'>"+
+                '<div class="card-body">' +
+                  '<h5 class="card-title">'+item.titulo+'</h5>'+
+                  '<p class="card-text"></p>'+
+                  '<a href="ficha_noticia.html?'+item.id+'" class="btn btn-primary">Ver noticia</a>'+
+                "</div>"+
+              "</div>"+
+            "</div><br><br>"
+          $('#noticias').append(elemento)
+        })
+      })
+    })
   </script>
 </body>   
 </html>
