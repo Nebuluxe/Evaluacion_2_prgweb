@@ -50,69 +50,11 @@
           </div>
         </div>
     </nav>
-
-    <br><br><br><br>
-
-    <div class="container">
-        <!-- Busqueda -->
-        <input class="form-control me-2" type="Buscar" id="search" onkeyup="busquedaDeEventos()" name="search" placeholder="Buscar" aria-label="Buscar"> 
-        <table class="table table-withe">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Evento</th>
-              <th scope="col">Artistas o grupos</th>
-              <th scope="col">Fecha de concierto</th>
-              <th scope="col">Lugar</th>
-              <th scope="col">#</th>
-            </tr>
-          </thead>
-          <tbody id="tabla">
-          </tbody>
-    </div>
       
     <!-- Java Script -->
     
     <script type="text/javascript">
-        const urlBase = "https://pgyex2.azurewebsites.net/api/Evento";
-        function busquedaDeEventos() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("search");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("tabla");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-                } else {
-                tr[i].style.display = "none";
-                }
-            }       
-            }
-        } 
-        $(document).ready(function(){
-            $.get(urlBase,function(data){  
-            
-                $.each(data,function(i,item){
-                    i=i+1 
-                    
-                    var elemento = '<tr>'+
-                    '<th scope="row">'+i+'</th>'+
-                    '<td>'+item.nombre+'</td>'+
-                    '<td>'+item.artista.nombre+'</td>'+
-                    '<td>'+item.fecha+'</td>'+
-                    '<td>'+item.donde+'</td>'+
-                    ' <td> '+
-                        '<a href="evento.html?'+item.id+'" class="btn btn-primary">'+
-                            'ir a evento</a>'+
-                    '</td></tr>'
-                    $('#tabla').append(elemento)
-                });
-            });
-        });
+
     </script>
 </body>
 </html>
